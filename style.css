@@ -1,0 +1,177 @@
+/* Core Variables & Resets */
+:root {
+    --primary: #FF3366;
+    --secondary: #FF9933;
+    --text-dark: #2c3e50;
+    --bg-glass: rgba(255, 255, 255, 0.75);
+    --success: #10b981;
+    --error: #ef4444;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    color: var(--text-dark);
+    /* Animated Bright Background */
+    background: linear-gradient(-45deg, #ff9a9e, #fecfef, #a1c4fd, #c2e9fb);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    min-height: 100vh;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+header {
+    margin: 60px 0 40px;
+    animation: fadeInDown 1s ease;
+}
+
+header h1 {
+    font-size: 3.5em;
+    font-weight: 800;
+    margin-bottom: 10px;
+    
+    /* 1. Background gradient (Standard + Webkit for fallback) */
+    background: linear-gradient(45deg, var(--text-dark), #4b6584);
+    background: -webkit-linear-gradient(45deg, var(--text-dark), #4b6584);
+    
+    /* 2. Clip the background to the text (Standard + Webkit) */
+    background-clip: text;
+    -webkit-background-clip: text;
+    
+    /* 3. Make the text transparent so the background shows through */
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    
+    /* 4. Use drop-shadow instead of text-shadow for gradient text */
+    filter: drop-shadow(2px 2px 10px rgba(0,0,0,0.1));
+}
+
+
+header p {
+    font-size: 1.2em;
+    color: #4b6584;
+}
+
+/* Glassmorphism Sections */
+section {
+    background: var(--bg-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 30px auto;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+    max-width: 750px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.15);
+}
+
+h2 {
+    color: var(--primary);
+    margin-top: 0;
+    font-size: 1.8em;
+}
+
+.section-divider {
+    font-size: 2.2em;
+    color: var(--text-dark);
+    margin: 80px auto 30px auto;
+    padding-bottom: 15px;
+    border-bottom: 4px dashed rgba(255, 255, 255, 0.6);
+    max-width: 750px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 800;
+}
+
+input[type="text"] {
+    width: 85%;
+    padding: 15px;
+    margin: 20px 0;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    font-size: 1em;
+    font-family: inherit;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 15px rgba(255, 51, 102, 0.2);
+    transform: scale(1.02);
+}
+
+button {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 51, 102, 0.3);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 51, 102, 0.4);
+}
+
+button:active {
+    transform: translateY(1px) scale(0.98);
+}
+
+.feedback {
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 1.1em;
+    min-height: 25px;
+}
+
+.correct { color: var(--success); }
+.incorrect { color: var(--error); }
+
+footer {
+    margin-top: 60px;
+    padding: 20px;
+    color: #4b6584;
+    font-weight: 600;
+}
+
+/* Scroll Reveal Classes */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
